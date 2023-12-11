@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+         <button (click)="RegistroObtener()">registro</button>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th scope="col">precio</th>
+                    <th scope="col">descripcion</th>
+                    <th>Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let dato of registro_egreso">
+                    <td>{{dato._id}}</td>
+                    <td>{{dato.precio}}</td>
+                    <td>{{dato.descripcion}}</td>
+                    <td><button (click)="eliminar(dato._id)">eliminar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    
+    </form>
+   
+    
+</body>
+</html>

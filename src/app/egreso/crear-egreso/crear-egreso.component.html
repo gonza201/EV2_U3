@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cft</title>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1>Formulario dos campos</h1>
+        </div>
+
+        <form [formGroup]="egreso">  
+            <div class="form-group">
+                <label>ID:</label>
+                <input type="text" placeholder="ID" formControlName="id_usuario" required>
+                <small *ngIf="ReactivoFormulario.id_usuario?.errors?.required && ReactivoFormulario.id_usuario.touched">
+                    el ID es necesario
+                </small>
+            </div>
+            <div class="form-group">
+                <label>precio:</label>
+                <input type="text" placeholder="nombre" formControlName="precio" required>
+
+                <small *ngIf="ReactivoFormulario.precio?.errors?.required && ReactivoFormulario.precio.touched">
+                    el precio es necesario
+                </small>
+            </div>
+            <div class="form-group">
+                <label>descripcion:</label>
+                <input type="text" placeholder="edad" formControlName="descripcion" required>
+
+                <small *ngIf="ReactivoFormulario.descripcion?.errors?.required && ReactivoFormulario.descripcion.touched">
+                    la descripcion es necesaria
+                </small>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit" (click)="EnviarBoton()" [disabled]="!egreso.valid"></button>
+            </div>
+        </form>
+        <button (click)="RegistroObtener()">registro</button>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th scope="col">precio</th>
+                    <th scope="col">descripcion</th>
+                    <th>Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let dato of registro_egreso">
+                    <td>{{dato._id}}</td>
+                    <td>{{dato.precio}}</td>
+                    <td>{{dato.descripcion}}</td>
+                    <td><button (click)="eliminar(dato._id)">eliminar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    
+</body>
+</html>

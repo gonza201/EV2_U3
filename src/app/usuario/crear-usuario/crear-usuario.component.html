@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1>Formulario-Usuario</h1>
+        </div>
+        <form [formGroup]="formulario">
+            <div class="form-group">
+                <label>nombre:</label>
+                <input type="text" placeholder="nombre" formControlName="nombre" required>
+                <small *ngIf="formularioReactivo.nombre?.errors?.required && formularioReactivo.nombre.touched">
+                    el nombre es necesario
+                </small>
+            </div>
+            <div class="form-group">
+                <label>apellido:</label>
+                <input type="text" placeholder="apellido" formControlName="apellido" required>
+                <small *ngIf="formularioReactivo.apellido?.errors?.required && formularioReactivo.apellido.touched">
+                    el apellido es necesario
+                </small>
+            </div>
+            <div class="form-group">
+                <label>rut:</label>
+                <input type="text" placeholder="rut" formControlName="rut" required>
+                <small *ngIf="formularioReactivo.rut?.errors?.required && formularioReactivo.rut.touched">
+                    el rut es necesario
+                </small>
+            </div>
+            <div class="form-group">
+                <label>correo:</label>
+                <input type="text" placeholder="correo" formControlName="correo" required>
+                <small *ngIf="formularioReactivo.correo?.errors?.required && formularioReactivo.correo.touched">
+                    el correo es necesario
+                </small>
+            </div>
+            <div class="form-group">
+                <label>password:</label>
+                <input type="password" placeholder="password" formControlName="password" required>
+                <small *ngIf="formularioReactivo.password?.errors?.required && formularioReactivo.password.touched">
+                    el password es necesario
+                </small>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>usuario</title>
+</head>
+<body>
+    <form [formGroup]="formulario">
+        <button (click)="obtenerRegistro()">registro</button>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th scope="col">nombre</th>
+                    <th scope="col">apellido</th>
+                    <th scope="col">rut</th>
+                    <th scope="col">correo</th>
+                    <th scope="col">password</th>
+                    <th>Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let dato of registro">
+                    <td>{{dato._id}}</td>
+                    <td>{{dato.nombre}}</td>
+                    <td>{{dato.apellido}}</td>
+                    <td>{{dato.rut}}</td>
+                    <td>{{dato.correo}}</td>
+                    <td>{{dato.password}}</td>
+                    <td><button (click)="eliminar(dato._id)">eliminar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    
+    </form>
+</body>
+</html>
